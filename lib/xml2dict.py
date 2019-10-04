@@ -17,7 +17,19 @@ def x2d(file):
 					for d in da:
 						if d!=da[0]:
 							w=w+"['"+d+"']"
-					exec("%s[n]=tmp"%w)
+					if tmp.isdigit():
+						exec("%s[n]=int(tmp)"%w)
+					elif tmp.startswith("-") and tmp[1:].isdigit():
+						exec("%s[n]=int(tmp)"%w)
+					elif "." in tmp and tmp.split(".")[-1].isdigit():
+						if tmp.split(".")[0].isdigit() and tmp.split(".")[-1].isdigit():
+							exec("%s[n]=float(tmp)"%w)
+						elif tmp.split(".")[0].startswith("-") and tmp.split(".")[0][1:].isdigit() and tmp.split(".")[-1].isdigit():
+							exec("%s[n]=float(tmp)"%w)
+						else:
+							exec("%s[n]=tmp"%w)
+					else:
+						exec("%s[n]=tmp"%w)
 				else:
 					w=da[0]
 					for d in da:
@@ -38,23 +50,25 @@ def d2x(di):
 			xml+="\n"+"\t"*t+"<"+e+">"
 			t+=1
 			if type(dic[e])==type([]):
-				xml+="\n"+"\t"*t+str(dic[e])
+				xml+=str(dic[e])
 			elif type(dic[e])==type({}):
 				innerdict(dic[e])
+				xml+="\n"+"\t"*(t-1)
 			else:
-				xml+="\n"+"\t"*t+str(dic[e])
+				xml+=str(dic[e])
 			t-=1
-			xml+="\n"+"\t"*t+"<"+e+">"
+			xml+="</"+e+">"
 	global t;t=0
 	for e in di:
 		xml+="\n"+"\t"*t+"<"+e+">"
 		t+=1
 		if type(di[e])==type([]):
-			xml+="\n"+"\t"*t+str(di[e])
+			xml+=str(di[e])
 		elif type(di[e])==type({}):
 			innerdict(di[e])
+			xml+="\n"+"\t"*(t-1)
 		else:
-			xml+="\n"+"\t"*t+str(di[e])
+			xml+=str(di[e])
 		t-=1
-		xml+="\n"+"\t"*t+"<"+e+">"
+		xml+="</"+e+">"
 	return xml
