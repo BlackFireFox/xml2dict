@@ -17,7 +17,11 @@ def x2d(file):
 					for d in da:
 						if d!=da[0]:
 							w=w+"['"+d+"']"
-					if tmp.isdigit():
+					if tmp.lower()=="true":
+						exec("%s[n]=int(1)"%w)
+					elif tmp.lower()=="false":
+						exec("%s[n]=int(0)"%w)
+					elif tmp.isdigit():
 						exec("%s[n]=int(tmp)"%w)
 					elif tmp.startswith("-") and tmp[1:].isdigit():
 						exec("%s[n]=int(tmp)"%w)
