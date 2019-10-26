@@ -3,7 +3,7 @@ Python lib to convert xml files to python's dictionary
 <sub>[GPL3](LICENSE)</sub>
 ***
 ## How to install
-`git clone https://github.com/BlackFireFox/xml2dict`
+`git clone https://github.com/Bytezz/xml2dict`
 
 `sudo python install.py`
 ## How to reinstall
