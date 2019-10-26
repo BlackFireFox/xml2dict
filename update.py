@@ -13,7 +13,7 @@ for line in code.splitlines():
 	if "." in line:
 		av=line.replace("	<p>Version:<br>","").replace("</p>","")
 		break
-vl="https://raw.githubusercontent.com/BlackFireFox/xml2dict/master/version.html"
+vl="https://raw.githubusercontent.com/Bytezz/xml2dict/master/version.html"
 print "Connecting..."
 try:
 	urllib2.urlopen(vl)
@@ -35,18 +35,18 @@ try:
 						if platform.system()=="Linux":
 							try:
 								print "Update..."
-								os.system("git clone https://github.com/BlackFireFox/xml2dict temp && cd temp/ && mv ../temp/* .. && rm -rf ../temp && make reinstall")
+								os.system("git clone https://github.com/Bytezz/xml2dict temp && cd temp/ && mv ../temp/* .. && rm -rf ../temp && make reinstall")
 								print "(If reinstall not completed, type:)"
 								print "sudo make reinstall"
 								print "Completed."
 							except:
 								print "Git not installed."
 								print "Go here for download:"
-								print "https://github.com/BlackFireFox/xml2dict"
+								print "https://github.com/Bytezz/xml2dict"
 							sys.exit()
 						else:
 							print "Go here for download:"
-							print "https://github.com/BlackFireFox/xml2dict"
+							print "https://github.com/Bytezz/xml2dict"
 							sys.exit()
 					elif up=="n" or "no":
 						print "Don't update."

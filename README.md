@@ -13,5 +13,5 @@ Python lib to convert xml files to python's dictionary
 ## How to use
 View test.py
 ***
-[DEVELOPER](https://github.com/BlackFireFox)<br>
+[DEVELOPER](https://github.com/Bytezz)<br>
 [LICENSE](LICENSE)
